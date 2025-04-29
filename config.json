@@ -1,0 +1,40 @@
+{
+  "cities": [
+    {
+      "name": "Stockholm",
+      "lat": 59.3293,
+      "lon": 18.0686,
+      "imageUrl": "/images/stockholm.jpg",
+      "timezone": "Europe/Stockholm"
+    },
+    {
+      "name": "Oslo",
+      "lat": 59.9139,
+      "lon": 10.7522,
+      "imageUrl": "/images/oslo.jpg",
+      "timezone": "Europe/Oslo"
+    },
+    {
+      "name": "Helsinki",
+      "lat": 60.1699,
+      "lon": 24.9384,
+      "imageUrl": "/images/helsinki.jpg",
+      "timezone": "Europe/Helsinki"
+    },
+    {
+      "name": "Copenhagen",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "imageUrl": "/images/copenhagen.jpg",
+      "timezone": "Europe/Copenhagen"
+    },
+    {
+      "name": "Berlin",
+      "lat": 52.5200,
+      "lon": 13.4050,
+      "imageUrl": "/images/berlin.jpg",
+      "timezone": "Europe/Berlin"
+    }
+  ],
+  "updateInterval": 600000
+}
