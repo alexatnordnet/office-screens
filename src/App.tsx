@@ -27,19 +27,6 @@ function App() {
     screens: AVAILABLE_SCREENS,
   });
 
-  // Handle keyboard shortcuts
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Space bar to manually switch screens
-      if (e.code === "Space") {
-        nextScreen();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [nextScreen]);
-
   // Render the current screen component
   const CurrentScreenComponent = SCREEN_COMPONENTS[currentScreen];
 

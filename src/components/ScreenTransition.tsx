@@ -15,7 +15,7 @@ const ScreenTransition: React.FC<ScreenTransitionProps> = ({
   return (
     <div
       className={`
-        w-full h-full transition-opacity duration-500 ease-in-out
+        w-full h-screen transition-opacity duration-500 ease-in-out
         ${isTransitioning ? 'opacity-0' : 'opacity-100'}
       `}
       data-screen={currentScreen}
