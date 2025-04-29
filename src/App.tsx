@@ -13,7 +13,18 @@ const SCREEN_COMPONENTS = {
 // Get screen rotation configuration from config
 const SCREEN_ROTATION_INTERVAL = config.screenRotation?.interval || 60000; // Default to 60 seconds
 const SCREEN_ROTATION_ENABLED = config.screenRotation?.enabled !== false; // Default to true
-const AVAILABLE_SCREENS: ScreenType[] = ["weather", "placeholder"];
+
+// Get enabled screens from config
+const AVAILABLE_SCREENS: ScreenType[] = Object.entries(config.screens || {})
+  .filter(([_, screenConfig]) => screenConfig.enabled)
+  .sort((a, b) => a[1].order - b[1].order)
+  .map(([screenType]) => screenType as ScreenType);
+
+// Default to weather if no screens are enabled
+if (AVAILABLE_SCREENS.length === 0) {
+  AVAILABLE_SCREENS.push('weather');
+  console.warn('No screens enabled in config, defaulting to weather screen');
+}
 
 function App() {
   const { 

@@ -36,9 +36,19 @@
       "timezone": "Europe/Berlin"
     }
   ],
-  "updateInterval": 600000,
+  "updateInterval": 3600000,
   "screenRotation": {
     "enabled": true,
     "interval": 60000
+  },
+  "screens": {
+    "weather": {
+      "enabled": true,
+      "order": 1
+    },
+    "placeholder": {
+      "enabled": false,
+      "order": 2
+    }
   }
 }

@@ -51,6 +51,9 @@ export const useScreenManager = ({
   
   // Setup global keyboard handler for space key
   useEffect(() => {
+    // Skip if we only have one screen
+    if (screens.length <= 1) return;
+    
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Space') {
         e.preventDefault();
@@ -63,7 +66,7 @@ export const useScreenManager = ({
     return () => {
       window.removeEventListener('keydown', handleGlobalKeyDown);
     };
-  }, [nextScreen]);
+  }, [nextScreen, screens.length]);
   
   return {
     currentScreen,

@@ -8,6 +8,7 @@ const WeatherScreen: React.FC = () => {
   const [cities, setCities] = useState<CityWeather[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Weather data updates hourly (3600000ms) as configured in config.json
   useEffect(() => {
     // Fetch weather data on component mount
     const getWeatherData = async () => {
@@ -23,7 +24,7 @@ const WeatherScreen: React.FC = () => {
 
     getWeatherData();
 
-    // Refresh weather data based on config interval
+    // Refresh weather data hourly (or based on config interval)
     const weatherRefreshInterval = setInterval(() => {
       getWeatherData();
     }, config.updateInterval);

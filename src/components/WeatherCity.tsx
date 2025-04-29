@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 import WeatherIcon from "./WeatherIcon";
@@ -18,10 +18,25 @@ const WeatherCity: React.FC<WeatherCityProps> = ({
   imageUrl,
   timezone,
 }) => {
-  // Format current time in the city's timezone
-  const now = new Date();
-  const cityTime = utcToZonedTime(now, timezone);
-  const currentTime = format(cityTime, "HH:mm:ss");
+  const [currentTime, setCurrentTime] = useState<string>('');
+  
+  // Update time every second
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const cityTime = utcToZonedTime(now, timezone);
+      setCurrentTime(format(cityTime, "HH:mm:ss"));
+    };
+    
+    // Update immediately
+    updateTime();
+    
+    // Then update every second
+    const interval = setInterval(updateTime, 1000);
+    
+    return () => clearInterval(interval);
+  }, [timezone]);
+  
   return (
     <div className="relative overflow-hidden">
       {/* Background image */}
