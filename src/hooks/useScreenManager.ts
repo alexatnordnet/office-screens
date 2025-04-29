@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ScreenType } from '../types/screen';
 
+// Constants
+const TRANSITION_DURATION = 500; // in milliseconds
+
 interface UseScreenManagerOptions {
   initialScreen: ScreenType;
   rotationInterval?: number; // in milliseconds
@@ -17,29 +20,22 @@ export const useScreenManager = ({
   
   // Function to switch to a specific screen
   const switchToScreen = useCallback((screen: ScreenType) => {
-    if (screen === currentScreen) {
-      console.log(`Already on ${screen} screen, not switching`);
-      return;
-    }
+    if (screen === currentScreen) return;
     
-    console.log(`Switching from ${currentScreen} to ${screen}`);
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentScreen(screen);
       setTimeout(() => {
         setIsTransitioning(false);
-        console.log(`Completed transition to ${screen}`);
-      }, 500); // transition duration
-    }, 500); // transition duration
+      }, TRANSITION_DURATION);
+    }, TRANSITION_DURATION);
   }, [currentScreen]);
   
   // Function to switch to the next screen in the rotation
   const nextScreen = useCallback(() => {
     const currentIndex = screens.indexOf(currentScreen);
     const nextIndex = (currentIndex + 1) % screens.length;
-    const nextScreenName = screens[nextIndex];
-    console.log(`Next screen called: ${currentScreen} -> ${nextScreenName}`);
-    switchToScreen(nextScreenName);
+    switchToScreen(screens[nextIndex]);
   }, [currentScreen, screens, switchToScreen]);
   
   // Set up the screen rotation interval
@@ -57,18 +53,15 @@ export const useScreenManager = ({
   useEffect(() => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Space') {
-        console.log('Space key detected in hook');
         e.preventDefault();
         nextScreen();
       }
     };
 
     window.addEventListener('keydown', handleGlobalKeyDown);
-    console.log('Global keyboard listener attached in hook');
     
     return () => {
       window.removeEventListener('keydown', handleGlobalKeyDown);
-      console.log('Global keyboard listener removed in hook');
     };
   }, [nextScreen]);
   

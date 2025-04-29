@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useScreenManager } from "./hooks/useScreenManager";
 import ScreenTransition from "./components/ScreenTransition";
 import WeatherScreen from "./screens/WeatherScreen";
