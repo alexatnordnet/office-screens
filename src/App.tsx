@@ -31,8 +31,7 @@ if (AVAILABLE_SCREENS.length === 0) {
 function App() {
   const { 
     currentScreen, 
-    isTransitioning, 
-    nextScreen 
+    isTransitioning 
   } = useScreenManager({
     initialScreen: "weather",
     rotationInterval: SCREEN_ROTATION_ENABLED ? SCREEN_ROTATION_INTERVAL : 0, // 0 disables rotation
