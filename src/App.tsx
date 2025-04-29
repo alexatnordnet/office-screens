@@ -3,6 +3,8 @@ import ScreenTransition from "./components/ScreenTransition";
 import WeatherScreen from "./screens/WeatherScreen";
 import PlaceholderScreen from "./screens/PlaceholderScreen";
 import { ScreenType } from "./types/screen";
+
+// Import config from root (using the alias defined in vite.config.ts)
 import config from "../config.json";
 
 const SCREEN_COMPONENTS = {

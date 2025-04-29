@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import WeatherCity from "../components/WeatherCity";
 import { fetchWeatherData } from "../api/weather";
 import { CityWeather } from "../types/weather";
+
+// Import config from root
 import config from "../../config.json";
 
 const WeatherScreen: React.FC = () => {

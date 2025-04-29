@@ -32,6 +32,28 @@ npm run dev
 npm run build
 ```
 
+## Deployment to GitHub Pages
+
+This project is configured for easy deployment to GitHub Pages.
+
+1. Install the gh-pages package if you haven't already:
+```bash
+npm install gh-pages --save-dev
+```
+
+2. Deploy using the npm script:
+```bash
+npm run deploy
+```
+
+Alternatively, you can use the included deploy.sh script:
+```bash
+chmod +x deploy.sh
+./deploy.sh
+```
+
+The site will be available at: https://alexatnordnet.github.io/office-screens/
+
 ## Technologies used
 
 - React
