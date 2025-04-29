@@ -29,10 +29,10 @@
       "timezone": "Europe/Copenhagen"
     },
     {
-      "name": "Berlin",
-      "lat": 52.5200,
-      "lon": 13.4050,
-      "imageUrl": "/images/berlin.jpg",
+      "name": "Frankfurt",
+      "lat": 50.1109,
+      "lon": 8.6821,
+      "imageUrl": "/images/frankfurt.jpg",
       "timezone": "Europe/Berlin"
     }
   ],
