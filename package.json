@@ -3,18 +3,21 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "homepage": "https://alexatnordnet.github.io/office-screens/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "axios": "^1.6.2",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
-    "axios": "^1.6.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
